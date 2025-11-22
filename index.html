@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patristica - I Padri della Chiesa</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #d32f2f;       /* Rosso deciso per testi e bottoni */
+            --light-red-bg: #fff5f5;      /* Rosso chiarissimo per sfondi */
+            --card-hover: #ffebee;        /* Colore hover card */
+            --contact-blue: #0d6efd;      /* Blu richiesto per contatti */
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-red-bg);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .hero-section {
+            background-color: white;
+            border-bottom: 4px solid var(--primary-red);
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-red);
+        }
+
+        /* Card Styles */
+        .nav-card {
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            background: white;
+            height: 100%;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(211, 47, 47, 0.2);
+            background-color: var(--card-hover);
+        }
+
+        .icon-large {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .btn-custom {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #b71c1c;
+            color: white;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: auto;
+            background-color: white;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 0;
+            font-size: 0.85rem;
+        }
+
+        .contact-link {
+            color: var(--contact-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .contact-link:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="container">
+            <i class="bi bi-bank2 display-4 text-danger mb-3"></i>
+            <h1 class="display-4 fw-bold">I Padri della Chiesa</h1>
+            <p class="lead text-muted">Un viaggio attraverso la storia, il pensiero e le figure che hanno fondato la teologia cristiana.</p>
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Codex_Sinaiticus_Matthew_6-32-7-18.jpg/1200px-Codex_Sinaiticus_Matthew_6-32-7-18.jpg" 
+                 alt="Antico Manoscritto Patristico" 
+                 class="img-fluid rounded shadow mt-4" 
+                 style="max-height: 350px; width: 100%; object-fit: cover;">
+                 
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card nav-card p-4 text-center h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <i class="bi bi-calendar-range icon-large"></i>
+                        <h4 class="card-title mb-3">Cronologia</h4>
+                        <p class="card-text flex-grow-1">Esplora i Padri divisi nei tre grandi periodi storici. Include ricerca per nome e data.</p>
+                        <a href="catalogo_periodi.html" class="btn btn-custom mt-3">Vai al Catalogo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card nav-card p-4 text-center h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <i class="bi bi-translate icon-large"></i>
+                        <h4 class="card-title mb-3">Latini & Greci</h4>
+                        <p class="card-text flex-grow-1">Confronta le due grandi tradizioni linguistiche e teologiche dell'antichità.</p>
+                        <a href="catalogo_lingua.html" class="btn btn-custom mt-3">Esplora Tradizioni</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card nav-card p-4 text-center h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <i class="bi bi-book-half icon-large"></i>
+                        <h4 class="card-title mb-3">Tematiche</h4>
+                        <p class="card-text flex-grow-1">Un elenco dei Padri associati ai principali argomenti teologici trattati.</p>
+                        <a href="catalogo_temi.html" class="btn btn-custom mt-3">Vedi Temi</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card nav-card p-4 text-center h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <i class="bi bi-joystick icon-large"></i>
+                        <h4 class="card-title mb-3">Quiz & Giochi</h4>
+                        <p class="card-text flex-grow-1">Mettiti alla prova! Verifica quanto hai imparato con i nostri minigiochi.</p>
+                        <a href="giochi.html" class="btn btn-custom mt-3">Gioca Ora</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <h6 class="text-uppercase text-muted mb-2" style="font-size: 0.7rem; letter-spacing: 1px;">Contatti</h6>
+            
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                <a href="https://www.instagram.com/lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-instagram"></i> lns_luca
+                </a>
+                
+                <a href="https://www.tiktok.com/@lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-tiktok"></i> @lns_luca
+                </a>
+                
+                <a href="mailto:lnsbusiness0@gmail.com" class="contact-link">
+                    <i class="bi bi-envelope-fill"></i> lnsbusiness0@gmail.com
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

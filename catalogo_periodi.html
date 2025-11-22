@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo Cronologico - Patristica</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --light-red-bg: #fff5f5;
+            --contact-blue: #0d6efd;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-red-bg);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header semplificato per le pagine interne */
+        .page-header {
+            background-color: white;
+            border-bottom: 3px solid var(--primary-red);
+            padding: 1.5rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-red);
+        }
+
+        /* Search Bar Style */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+        }
+
+        .form-control-lg {
+            border-radius: 30px;
+            border: 2px solid #e0e0e0;
+            padding-left: 50px;
+        }
+
+        .form-control-lg:focus {
+            box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
+            border-color: var(--primary-red);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        /* Table Styles */
+        .table-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden; /* Per arrotondare gli angoli della tabella */
+            margin-bottom: 3rem;
+        }
+
+        .table thead {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .period-title {
+            background-color: #ffcdd2; /* Rosso pastello scuro per separare sezioni */
+            padding: 10px 15px;
+            margin: 0;
+            border-left: 5px solid var(--primary-red);
+            font-weight: bold;
+        }
+
+        /* Footer Styles (Identico alla home) */
+        footer {
+            margin-top: auto;
+            background-color: white;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 0;
+            font-size: 0.85rem;
+        }
+
+        .contact-link {
+            color: var(--contact-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .contact-link:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header d-flex justify-content-between align-items-center container-fluid px-4">
+        <a href="index.html" class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-arrow-left"></i> Torna alla Home
+        </a>
+        <h2 class="m-0">Catalogo Cronologico</h2>
+        <div style="width: 100px;"></div> </header>
+
+    <main class="container">
+        
+        <div class="search-container">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Cerca Padre, data o periodo...">
+        </div>
+
+        <p id="noResults" class="text-center text-muted" style="display: none;">Nessun risultato trovato.</p>
+
+        <div class="table-container fade-in">
+            <h4 class="period-title">1. Le Origini e l'Apologetica (I - III Secolo)</h4>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 40%;">Nome</th>
+                            <th scope="col" style="width: 30%;">Periodo Specifico</th>
+                            <th scope="col" style="width: 30%;">Date (circa)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fathers-list">
+                        <tr>
+                            <td class="fw-bold">Clemente Romano</td>
+                            <td>Padri Apostolici</td>
+                            <td>35 - 99 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ignazio di Antiochia</td>
+                            <td>Padri Apostolici</td>
+                            <td>35 - 107 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Policarpo di Smirne</td>
+                            <td>Padri Apostolici</td>
+                            <td>69 - 155 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Giustino Martire</td>
+                            <td>Apologisti</td>
+                            <td>100 - 165 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ireneo di Lione</td>
+                            <td>Anti-Gnostici</td>
+                            <td>130 - 202 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Tertulliano</td>
+                            <td>Apologisti Latini</td>
+                            <td>155 - 230 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Origene</td>
+                            <td>Scuola Alessandrina</td>
+                            <td>185 - 254 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Cipriano di Cartagine</td>
+                            <td>Padri Latini</td>
+                            <td>210 - 258 d.C.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="table-container fade-in">
+            <h4 class="period-title">2. L'Età dell'Oro della Patristica (IV - V Secolo)</h4>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 40%;">Nome</th>
+                            <th scope="col" style="width: 30%;">Periodo Specifico</th>
+                            <th scope="col" style="width: 30%;">Date (circa)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fathers-list">
+                        <tr>
+                            <td class="fw-bold">Atanasio di Alessandria</td>
+                            <td>Anti-Ariani</td>
+                            <td>295 - 373 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Basilio Magno</td>
+                            <td>Padri Cappadoci</td>
+                            <td>329 - 379 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Gregorio Nazianzeno</td>
+                            <td>Padri Cappadoci</td>
+                            <td>329 - 390 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Gregorio di Nissa</td>
+                            <td>Padri Cappadoci</td>
+                            <td>335 - 395 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ambrogio di Milano</td>
+                            <td>Padri Latini</td>
+                            <td>340 - 397 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Giovanni Crisostomo</td>
+                            <td>Scuola di Antiochia</td>
+                            <td>344 - 407 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Girolamo (San Gerolamo)</td>
+                            <td>Esegeti Latini</td>
+                            <td>347 - 420 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Agostino d'Ippona</td>
+                            <td>Dottore della Grazia</td>
+                            <td>354 - 430 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Cirillo di Alessandria</td>
+                            <td>Cristologia</td>
+                            <td>370 - 444 d.C.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="table-container fade-in">
+            <h4 class="period-title">3. Tardo Patristica e Conclusione (VI - VIII Secolo)</h4>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 40%;">Nome</th>
+                            <th scope="col" style="width: 30%;">Periodo Specifico</th>
+                            <th scope="col" style="width: 30%;">Date (circa)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fathers-list">
+                        <tr>
+                            <td class="fw-bold">Benedetto da Norcia</td>
+                            <td>Monachesimo Occidentale</td>
+                            <td>480 - 547 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Gregorio Magno</td>
+                            <td>Papa e Dottore</td>
+                            <td>540 - 604 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Isidoro di Siviglia</td>
+                            <td>Ultimo Padre Latino</td>
+                            <td>560 - 636 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Massimo il Confessore</td>
+                            <td>Teologia Bizantina</td>
+                            <td>580 - 662 d.C.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Giovanni Damasceno</td>
+                            <td>Ultimo Padre Greco</td>
+                            <td>676 - 749 d.C.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <h6 class="text-uppercase text-muted mb-2" style="font-size: 0.7rem; letter-spacing: 1px;">Contatti</h6>
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                <a href="https://www.instagram.com/lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-instagram"></i> lns_luca
+                </a>
+                <a href="https://www.tiktok.com/@lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-tiktok"></i> @lns_luca
+                </a>
+                <a href="mailto:lnsbusiness0@gmail.com" class="contact-link">
+                    <i class="bi bi-envelope-fill"></i> lnsbusiness0@gmail.com
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const allRows = document.querySelectorAll('.fathers-list tr');
+            const noResultsMsg = document.getElementById('noResults');
+
+            searchInput.addEventListener('keyup', function(e) {
+                const term = e.target.value.toLowerCase();
+                let visibleCount = 0;
+
+                allRows.forEach(row => {
+                    // Prende tutto il testo della riga (Nome, Periodo, Date)
+                    const text = row.textContent.toLowerCase();
+                    
+                    if(text.includes(term)) {
+                        row.style.display = ''; // Mostra
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none'; // Nascondi
+                    }
+                });
+
+                // Gestione messaggio "Nessun risultato"
+                if(visibleCount === 0) {
+                    noResultsMsg.style.display = 'block';
+                } else {
+                    noResultsMsg.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

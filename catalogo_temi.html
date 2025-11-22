@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temi Teologici - Patristica</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --light-red-bg: #fff5f5;
+            --contact-blue: #0d6efd;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-red-bg);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background-color: white;
+            border-bottom: 3px solid var(--primary-red);
+            padding: 1.5rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-red);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+        }
+
+        .form-control-lg {
+            border-radius: 30px;
+            border: 2px solid #e0e0e0;
+            padding-left: 50px;
+        }
+
+        .form-control-lg:focus {
+            box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
+            border-color: var(--primary-red);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        /* Table Styles */
+        .table-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .table thead {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        /* Badge Styles per i Temi */
+        .badge-theme {
+            background-color: #ffebee;
+            color: #b71c1c;
+            border: 1px solid #ffcdd2;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin: 2px;
+            padding: 6px 10px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: auto;
+            background-color: white;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 0;
+            font-size: 0.85rem;
+        }
+
+        .contact-link {
+            color: var(--contact-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .contact-link:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header d-flex justify-content-between align-items-center container-fluid px-4">
+        <a href="index.html" class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-arrow-left"></i> Torna alla Home
+        </a>
+        <h2 class="m-0">Padri e Tematiche</h2>
+        <div style="width: 100px;"></div>
+    </header>
+
+    <main class="container">
+        
+        <div class="search-container">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Cerca tema (es. Trinità, Grazia) o nome...">
+        </div>
+
+        <p id="noResults" class="text-center text-muted" style="display: none;">Nessun risultato trovato.</p>
+
+        <div class="table-container fade-in">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 25%;">Padre della Chiesa</th>
+                            <th scope="col" style="width: 75%;">Temi e Dottrine Chiave</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fathers-list">
+                        <tr>
+                            <td class="fw-bold">Clemente Romano</td>
+                            <td>
+                                <span class="badge-theme">Successione Apostolica</span>
+                                <span class="badge-theme">Primato di Roma</span>
+                                <span class="badge-theme">Unità della Chiesa</span>
+                                <span class="badge-theme">Carità</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ignazio di Antiochia</td>
+                            <td>
+                                <span class="badge-theme">Episcopato Monarchico</span>
+                                <span class="badge-theme">Martirio come imitazione di Cristo</span>
+                                <span class="badge-theme">Realtà dell'Incarnazione</span>
+                                <span class="badge-theme">Eucaristia</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Giustino Martire</td>
+                            <td>
+                                <span class="badge-theme">Logos Spermaticos</span>
+                                <span class="badge-theme">Rapporto Fede-Ragione</span>
+                                <span class="badge-theme">Liturgia Antica</span>
+                                <span class="badge-theme">Filosofia come preparazione al Vangelo</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ireneo di Lione</td>
+                            <td>
+                                <span class="badge-theme">Contro lo Gnosticismo</span>
+                                <span class="badge-theme">Tradizione Apostolica</span>
+                                <span class="badge-theme">Recapitolazione in Cristo</span>
+                                <span class="badge-theme">Unità dei due Testamenti</span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="fw-bold">Tertulliano</td>
+                            <td>
+                                <span class="badge-theme">Coniazione termine "Trinità"</span>
+                                <span class="badge-theme">Anima naturaliter christiana</span>
+                                <span class="badge-theme">Rigore Morale</span>
+                                <span class="badge-theme">Rifiuto della Filosofia Pagana</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Origene</td>
+                            <td>
+                                <span class="badge-theme">Esegesi Allegorica</span>
+                                <span class="badge-theme">Preesistenza delle anime</span>
+                                <span class="badge-theme">Apocatastasi (Salvezza universale)</span>
+                                <span class="badge-theme">Ascesi spirituale</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Cipriano di Cartagine</td>
+                            <td>
+                                <span class="badge-theme">Unità della Chiesa Cattolica</span>
+                                <span class="badge-theme">Nulla salus extra ecclesiam</span>
+                                <span class="badge-theme">Gestione dei "Lapsi"</span>
+                                <span class="badge-theme">Il Vescovo come centro della comunità</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Atanasio di Alessandria</td>
+                            <td>
+                                <span class="badge-theme">Homoousios (Consustanzialità)</span>
+                                <span class="badge-theme">Divinità del Verbo</span>
+                                <span class="badge-theme">Contro l'Arianesimo</span>
+                                <span class="badge-theme">Incarnazione</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Basilio Magno</td>
+                            <td>
+                                <span class="badge-theme">Divinità dello Spirito Santo</span>
+                                <span class="badge-theme">Regole Monastiche</span>
+                                <span class="badge-theme">Liturgia Orientale</span>
+                                <span class="badge-theme">Carità sociale</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Gregorio Nazianzeno</td>
+                            <td>
+                                <span class="badge-theme">Teologia Trinitaria</span>
+                                <span class="badge-theme">Umanità di Cristo</span>
+                                <span class="badge-theme">Processione dello Spirito Santo</span>
+                                <span class="badge-theme">Arte Retorica cristiana</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ambrogio di Milano</td>
+                            <td>
+                                <span class="badge-theme">Autonomia della Chiesa dallo Stato</span>
+                                <span class="badge-theme">Inni Liturgici</span>
+                                <span class="badge-theme">Mariologia</span>
+                                <span class="badge-theme">Esegesi morale</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Giovanni Crisostomo</td>
+                            <td>
+                                <span class="badge-theme">Dignità dei Poveri</span>
+                                <span class="badge-theme">Predicazione ed Esegesi Letterale</span>
+                                <span class="badge-theme">Sacerdozio</span>
+                                <span class="badge-theme">Vita morale della famiglia</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Girolamo</td>
+                            <td>
+                                <span class="badge-theme">Vulgata (Traduzione Bibbia)</span>
+                                <span class="badge-theme">Veritas Hebraica</span>
+                                <span class="badge-theme">Ascesi monastica femminile</span>
+                                <span class="badge-theme">Verginità perpetua di Maria</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Agostino d'Ippona</td>
+                            <td>
+                                <span class="badge-theme">Grazia e Libero Arbitrio</span>
+                                <span class="badge-theme">Peccato Originale</span>
+                                <span class="badge-theme">Città di Dio vs Città Terrena</span>
+                                <span class="badge-theme">Trinità Psicologica</span>
+                                <span class="badge-theme">Tempo e Memoria</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Cirillo di Alessandria</td>
+                            <td>
+                                <span class="badge-theme">Theotokos (Madre di Dio)</span>
+                                <span class="badge-theme">Unione Ipostatica</span>
+                                <span class="badge-theme">Cristologia unitaria</span>
+                                <span class="badge-theme">Contro Nestorio</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Leone Magno</td>
+                            <td>
+                                <span class="badge-theme">Primato Petrino (Papato)</span>
+                                <span class="badge-theme">Due Nature in una Persona (Tomo)</span>
+                                <span class="badge-theme">Cristo Mediatore</span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="fw-bold">Benedetto da Norcia</td>
+                            <td>
+                                <span class="badge-theme">Ora et Labora</span>
+                                <span class="badge-theme">Stabilitas loci</span>
+                                <span class="badge-theme">Umiltà e Obbedienza</span>
+                                <span class="badge-theme">Discrezione nell'ascesi</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Gregorio Magno</td>
+                            <td>
+                                <span class="badge-theme">Cura Pastorale</span>
+                                <span class="badge-theme">Dottrina del Purgatorio</span>
+                                <span class="badge-theme">Uso delle immagini sacre</span>
+                                <span class="badge-theme">Canto Gregoriano</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Giovanni Damasceno</td>
+                            <td>
+                                <span class="badge-theme">Difesa delle Icone</span>
+                                <span class="badge-theme">Sintesi della Teologia Patristica</span>
+                                <span class="badge-theme">Dormizione di Maria</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <h6 class="text-uppercase text-muted mb-2" style="font-size: 0.7rem; letter-spacing: 1px;">Contatti</h6>
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                <a href="https://www.instagram.com/lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-instagram"></i> lns_luca
+                </a>
+                <a href="https://www.tiktok.com/@lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-tiktok"></i> @lns_luca
+                </a>
+                <a href="mailto:lnsbusiness0@gmail.com" class="contact-link">
+                    <i class="bi bi-envelope-fill"></i> lnsbusiness0@gmail.com
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const allRows = document.querySelectorAll('.fathers-list tr');
+            const noResultsMsg = document.getElementById('noResults');
+
+            searchInput.addEventListener('keyup', function(e) {
+                const term = e.target.value.toLowerCase();
+                let visibleCount = 0;
+
+                allRows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    // Cerca sia nel nome che nei temi
+                    if(text.includes(term)) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                if(visibleCount === 0) {
+                    noResultsMsg.style.display = 'block';
+                } else {
+                    noResultsMsg.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

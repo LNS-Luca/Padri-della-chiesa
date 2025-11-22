@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latini e Greci - Patristica</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --light-red-bg: #fff5f5;
+            --contact-blue: #0d6efd;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-red-bg);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background-color: white;
+            border-bottom: 3px solid var(--primary-red);
+            padding: 1.5rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-red);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+        }
+
+        .form-control-lg {
+            border-radius: 30px;
+            border: 2px solid #e0e0e0;
+            padding-left: 50px;
+        }
+
+        .form-control-lg:focus {
+            box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
+            border-color: var(--primary-red);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        /* Table Styles */
+        .table-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .table thead {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .section-header {
+            padding: 15px;
+            background-color: #ffcdd2;
+            border-left: 5px solid var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header h4 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #b71c1c;
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: auto;
+            background-color: white;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 0;
+            font-size: 0.85rem;
+        }
+
+        .contact-link {
+            color: var(--contact-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .contact-link:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header d-flex justify-content-between align-items-center container-fluid px-4">
+        <a href="index.html" class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-arrow-left"></i> Torna alla Home
+        </a>
+        <h2 class="m-0">Tradizione Latina e Greca</h2>
+        <div style="width: 100px;"></div>
+    </header>
+
+    <main class="container">
+        
+        <div class="search-container">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Cerca un Padre (es. Agostino, Greco, 354)...">
+        </div>
+
+        <p id="noResults" class="text-center text-muted" style="display: none;">Nessun risultato trovato.</p>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="table-container">
+                    <div class="section-header">
+                        <i class="bi bi-globe-americas fs-4 text-danger"></i>
+                        <h4>Padri della Chiesa Latina</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40%;">Nome</th>
+                                    <th style="width: 30%;">Ruolo/Luogo</th>
+                                    <th style="width: 30%;">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fathers-list">
+                                <tr>
+                                    <td class="fw-bold">Tertulliano</td>
+                                    <td>Apologista (Cartagine)</td>
+                                    <td>155 - 230</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Cipriano</td>
+                                    <td>Vescovo di Cartagine</td>
+                                    <td>210 - 258</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Ilario di Poitiers</td>
+                                    <td>Vescovo (La Gallia)</td>
+                                    <td>315 - 367</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Ambrogio</td>
+                                    <td>Vescovo di Milano</td>
+                                    <td>340 - 397</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Girolamo</td>
+                                    <td>Traduttore (Vulgata)</td>
+                                    <td>347 - 420</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Agostino</td>
+                                    <td>Vescovo d'Ippona</td>
+                                    <td>354 - 430</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Leone Magno</td>
+                                    <td>Papa</td>
+                                    <td>400 - 461</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Gregorio Magno</td>
+                                    <td>Papa</td>
+                                    <td>540 - 604</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Isidoro di Siviglia</td>
+                                    <td>Enciclopedista</td>
+                                    <td>560 - 636</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="table-container">
+                    <div class="section-header">
+                        <i class="bi bi-globe-asia-australia fs-4 text-danger"></i>
+                        <h4>Padri della Chiesa Greca</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40%;">Nome</th>
+                                    <th style="width: 30%;">Ruolo/Luogo</th>
+                                    <th style="width: 30%;">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fathers-list">
+                                <tr>
+                                    <td class="fw-bold">Clemente Romano</td>
+                                    <td>Papa (Scrisse in Greco)</td>
+                                    <td>35 - 99</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Ignazio di Antiochia</td>
+                                    <td>Vescovo (Siria)</td>
+                                    <td>35 - 107</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Giustino</td>
+                                    <td>Filosofo e Martire</td>
+                                    <td>100 - 165</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Ireneo di Lione</td>
+                                    <td>Vescovo (Asia Minore)</td>
+                                    <td>130 - 202</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Origene</td>
+                                    <td>Scuola di Alessandria</td>
+                                    <td>185 - 254</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Atanasio</td>
+                                    <td>Vescovo di Alessandria</td>
+                                    <td>295 - 373</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Basilio Magno</td>
+                                    <td>Cappadoce (Cesarea)</td>
+                                    <td>329 - 379</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Gregorio Nazianzeno</td>
+                                    <td>Cappadoce (Costant.)</td>
+                                    <td>329 - 390</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Giovanni Crisostomo</td>
+                                    <td>"Bocca d'Oro"</td>
+                                    <td>344 - 407</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Giovanni Damasceno</td>
+                                    <td>Dottore (Damasco)</td>
+                                    <td>676 - 749</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <h6 class="text-uppercase text-muted mb-2" style="font-size: 0.7rem; letter-spacing: 1px;">Contatti</h6>
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                <a href="https://www.instagram.com/lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-instagram"></i> lns_luca
+                </a>
+                <a href="https://www.tiktok.com/@lns_luca" target="_blank" class="contact-link">
+                    <i class="bi bi-tiktok"></i> @lns_luca
+                </a>
+                <a href="mailto:lnsbusiness0@gmail.com" class="contact-link">
+                    <i class="bi bi-envelope-fill"></i> lnsbusiness0@gmail.com
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const allRows = document.querySelectorAll('.fathers-list tr');
+            const noResultsMsg = document.getElementById('noResults');
+
+            searchInput.addEventListener('keyup', function(e) {
+                const term = e.target.value.toLowerCase();
+                let visibleCount = 0;
+
+                allRows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    if(text.includes(term)) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                if(visibleCount === 0) {
+                    noResultsMsg.style.display = 'block';
+                } else {
+                    noResultsMsg.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
